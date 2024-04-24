@@ -1,8 +1,8 @@
 "use server"
 
 import { handleError } from "@/lib/utils"
-import { connectToDatabase } from "../mongoose"
-import User from "../models/user.model";
+import { connectToDatabase } from "../database/mongoose"
+import User from "../database/models/user.model";
 import { revalidatePath } from "next/cache";
 
 export async function createUser(user: CreateUserParams) {
