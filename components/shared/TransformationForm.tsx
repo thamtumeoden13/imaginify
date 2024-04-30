@@ -144,8 +144,8 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
           [fieldName === 'prompt' ? 'prompt' : 'to']: value
         }
       }))
-      return onChangeField(value)
-    }, 1000)
+    }, 1000)()
+    return onChangeField(value)
   }
 
   const onTransformHandler = async () => {
@@ -191,6 +191,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
             className="w-full"
             render={({ field }) => (
               <Select
+              value={field.value}
                 onValueChange={(value) => onSelectFieldhandler(value, field.onChange)}
               >
                 <SelectTrigger className="select-field">
@@ -234,7 +235,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
               <CustomField
                 control={form.control}
                 name="color"
-                formLabel="Replacement"
+                formLabel="Replacement Color"
                 className="w-full"
                 render={({ field }) => (
                   <Input
